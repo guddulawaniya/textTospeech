@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/black"
     android:layout_height="match_parent"
+    android:background="#9C27B0"
     tools:context=".MainActivity">
 
     <ImageView
@@ -27,15 +27,42 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
-        android:textSize="30sp"
+        android:gravity="center"
         android:padding="10dp"
         android:text="tap mic and speak the answer"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/iv_mic"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/iv_mic"
         app:layout_constraintTop_toBottomOf="@+id/iv_mic" />
+
+    <ImageView
+        android:id="@+id/repeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/refresh" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Repeat"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_mic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeat"
+        app:layout_constraintVertical_bias="0.357" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

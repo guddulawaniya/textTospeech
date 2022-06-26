@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         iv_mic = findViewById(R.id.iv_mic);
+        ImageView repeat = findViewById(R.id.repeat);
         tv_Speech_to_text = findViewById(R.id.tv_speech_to_text);
 
         iv_mic.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +48,28 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        repeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(int i) {
+
+                        // if No error is found then only it will run
+                        if (i != TextToSpeech.ERROR) {
+                            // To Choose language of speech
+                            textToSpeech.setLanguage(Locale.UK);
+
+                            textToSpeech.speak(String.valueOf(text), TextToSpeech.QUEUE_FLUSH, null);
+                        }
+                    }
+                });
+            }
+        });
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
@@ -60,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 String tex = result.get(0);
                 String check = "4";
-                Toast.makeText(this, ""+tex, Toast.LENGTH_SHORT).show();
 
 
                 if (tex.equals(check)) {
@@ -73,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                 // To Choose language of speech
                                 textToSpeech.setLanguage(Locale.UK);
 
-                                textToSpeech.speak("Right", TextToSpeech.QUEUE_FLUSH, null);
+                                textToSpeech.speak("Right Your Excellent", TextToSpeech.QUEUE_FLUSH, null);
                             }
                         }
                     });
@@ -93,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             }
+
 
 
         }
